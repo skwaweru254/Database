@@ -1,9 +1,10 @@
 <?php
-$con = new mysqli('localhost', 'simon', 'simon123', 'dbMSpace');
+$con = new mysqli('localhost', 'root', 'Mspace54#', 'dbMSpace');
 
 if(!$con){
 
     die(mysqli_error($con));
+
 }
 
 ?>

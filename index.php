@@ -5,13 +5,16 @@ if (isset($_POST['submit'])) {
 
 
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $password = md5($_POST['password']);
+    //$password = crypt($_POST['password']);
+    //$password = password_hash($_POST['password'], PASSWORD_DEFAULT)
 
     $sql = "insert into `tCRUD` (email,password) values ('$email','$password')";
     $result = mysqli_query($con, $sql);
 
     if ($result) {
-        echo "Data inserted successfully";
+        //echo "Data inserted successfully";
+        echo '<script>alert("Data inserted successfully")</script>';
     } else {
         die(mysqli_error($con));
     }
