@@ -1,14 +1,21 @@
 <?php
- include 'connect.php';
+include 'connect.php';
 
- if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
 
 
     $email = $_POST['email'];
-    $password = $_POST['passwrd'];
+    $password = $_POST['password'];
 
+    $sql = "insert into `tCRUD` (email,password) values ('$email','$password')";
+    $result = mysqli_query($con, $sql);
 
- }
+    if ($result) {
+        echo "Data inserted successfully";
+    } else {
+        die(mysqli_error($con));
+    }
+}
 
 ?>
 
@@ -42,7 +49,7 @@
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" name="password">
             </div>
-        
+
             <button type="submit" class="btn btn-primary" name="submit">Submit</button>
         </form>
 
