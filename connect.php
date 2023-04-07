@@ -1,5 +1,5 @@
 <?php
-$con = new mysqli('localhost', 'root', 'Mspace54#', 'dbMSpace');
+$con = new mysqli('localhost', 'simon', 'simon123', 'dbMSpace');
 
 if(!$con){
 
