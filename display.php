@@ -7,7 +7,7 @@ if(isset($_POST['submit'])){
 
     echo $email;
     echo $password;
-    echo $image
+    echo $image;
 
 }
 ?>
