@@ -6,10 +6,11 @@ if (isset($_POST['submit'])) {
 
     $email = $_POST['email'];
     $password = md5($_POST['password']);
+    $image = $_POST['file'];
     //$password = crypt($_POST['password']);
     //$password = password_hash($_POST['password'], PASSWORD_DEFAULT)
 
-    $sql = "insert into `tCRUD` (email,password) values ('$email','$password')";
+    $sql = "insert into `tCRUD` (email,password, profile) values ('$email','$password', '$image')";
     $result = mysqli_query($con, $sql);
 
     if ($result) {
@@ -34,23 +35,29 @@ if (isset($_POST['submit'])) {
     <!-- Viewport Meta Tag -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 
 <body>
 
 
     <!-- YOUR CONTENT STARTS HERE -->
+        <h1 class="text-center my-3">Registration Form</h1>
 
-    <div class="container my-5">
-        <form method="post">
+    <div class="container my-5 d-flex justify-content-center">
+        <form method="post" class="w-50">
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+                <label class="form-label">Email address</label>
+                <input type="email" class="form-control" name="email" required="">
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" required="">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">File</label>
+                <input type="file" class="form-control" name="file" required="">
             </div>
 
             <button type="submit" class="btn btn-primary" name="submit">Submit</button>
