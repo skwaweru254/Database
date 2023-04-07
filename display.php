@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
 
     if (in_array($file_extension, $extension)) {
 
-        $upload_image = './images/' . $imagefilename;
+        $upload_image = 'images/' . $imagefilename;
         if (move_uploaded_file($imagefiletemp, $upload_image)) {
 
 
@@ -59,6 +59,12 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style type="text/css">
+        img {
+            width: 100px;
+        }
+    </style>
 
 </head>
 
