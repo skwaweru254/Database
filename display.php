@@ -24,19 +24,24 @@ if (isset($_POST['submit'])) {
 
     if (in_array($file_extension, $extension)) {
 
-        $upload_image = 'images/' . $imagefilename;
-        move_uploaded_file($imagefiletemp, $upload_image);
+        $upload_image = './images/' . $imagefilename;
+        if (move_uploaded_file($imagefiletemp, $upload_image)) {
 
-        $sql = "insert into `tCRUD` (email,password, profile) values ('$email','$password', '$upload_image')";
-        //$result = mysqli_query($con, $sql);
 
-        if (mysqli_query($con, $sql)) {
-            echo '<script>alert("Data inserted successfully")</script>';
+            echo '<script>alert("Image inserted successfully")</script>';
+
+            $sql = "insert into `tCRUD` (email,password, profile) values ('$email','$password', '$upload_image')";
+            //$result = mysqli_query($con, $sql);
+
+            if (mysqli_query($con, $sql)) {
+                echo '<script>alert("Data inserted successfully")</script>';
+            } else {
+                die(mysqli_error($con));
+            }
         } else {
-            die(mysqli_error($con));
-        }
 
-        # code...
+            echo '<script>alert("Image insertion failed")</script>';
+        }
     }
 }
 ?>
