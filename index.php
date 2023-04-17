@@ -1,25 +1,6 @@
 <?php
 include 'connect.php';
 
-if (isset($_POST['submit'])) {
-
-
-    $email = $_POST['email'];
-    $password = md5($_POST['password']);
-    $image = $_POST['file'];
-    //$password = crypt($_POST['password']);
-    //$password = password_hash($_POST['password'], PASSWORD_DEFAULT)
-
-    $sql = "insert into `tCRUD` (email,password, profile) values ('$email','$password', '$image')";
-    $result = mysqli_query($con, $sql);
-
-    if ($result) {
-        //echo "Data inserted successfully";
-        echo '<script>alert("Data inserted successfully")window.location.href="display.php";</script>';
-    } else {
-        die(mysqli_error($con));
-    }
-}
 
 ?>
 
@@ -43,10 +24,10 @@ if (isset($_POST['submit'])) {
 
 
     <!-- YOUR CONTENT STARTS HERE -->
-        <h1 class="text-center my-3">Registration Form</h1>
+    <h1 class="text-center my-3">Registration Form</h1>
 
     <div class="container my-5 d-flex justify-content-center">
-        <form method="post" class="w-50" action="display.php">
+        <form method="post" class="w-50" action="display.php" enctype="multipart/form-data">
             <div class="mb-3">
                 <label class="form-label">Email address</label>
                 <input type="email" class="form-control" name="email" required="" placeholder="Email Address">
