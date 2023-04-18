@@ -1,9 +1,9 @@
 <?php
-$con = new mysqli('localhost', 'simon', 'simon123', 'dbMSpace');
+$con = new mysqli('localhost', 'root', 'Mspace54#', 'dbMSpace');
 
-if (!$con) {
+if (mysqli_connect_errno()) {
 
-    die(mysqli_error($con));
+    echo '<script>alert("Failed to connect to dbMSpace database!")</script>';
 }
 
 ?>
