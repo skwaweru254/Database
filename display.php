@@ -5,6 +5,9 @@ if (isset($_POST['submit'])) {
 
     $email = $_POST['email'];
     $password = md5($_POST['password']);
+    // $email_escape = mysqli_escape_string($con, $email);
+
+    // print_r($email+"and"+$email_escape);
     //$password = crypt($_POST['password']);
     //$password = password_hash($_POST['password'], PASSWORD_DEFAULT)
     $image = $_FILES['file'];
