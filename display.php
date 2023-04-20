@@ -3,8 +3,8 @@ include 'connect.php';
 
 if (isset($_POST['submit'])) {
 
-    $email = $_POST['email'];
-    $password = md5($_POST['password']);
+    $email = mysqli_escape_string($con, $_POST['email']);
+    $password = mysqli_escape_string($con, md5($_POST['password']));
     // $email_escape = mysqli_escape_string($con, $email);
 
     // print_r($email+"and"+$email_escape);
